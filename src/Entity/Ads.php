@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdsRepository")
@@ -18,6 +19,7 @@ class Ads
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -27,7 +29,8 @@ class Ads
     private $date;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", length=100)
+     * @Assert\NotBlank()
      */
     private $description;
 
