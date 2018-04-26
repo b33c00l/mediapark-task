@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Ads{% endblock %}
+{% block title %}New Ad{% endblock %}
 
 {% block body %}
-    <h1>Create new Ads</h1>
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Create new Ad</h1>
 
-    {{ include('ads/_form.html.twig') }}
-
-    <a href="{{ path('ads_index') }}">back to list</a>
+            {{ include('ads/_form.html.twig') }}
+            <div class="text-right">
+                <a class="btn-sm btn-outline-primary" href="{{ path('ads_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

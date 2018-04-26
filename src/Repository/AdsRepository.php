@@ -19,6 +19,18 @@ class AdsRepository extends ServiceEntityRepository
         parent::__construct($registry, Ads::class);
     }
 
+    public function getAllForPage($page, $perPage)
+    {
+        $from = ($page - 1) * $perPage;
+        $query = $this->createQueryBuilder('ad')
+            ->orderBy('ad.id', 'DESC')
+            ->setFirstResult($from)
+            ->setMaxResults($perPage)
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
 //    /**
 //     * @return Ads[] Returns an array of Ads objects
 //     */

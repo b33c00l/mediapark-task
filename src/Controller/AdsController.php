@@ -48,7 +48,7 @@ class AdsController extends Controller
             $em->persist($ad);
             $em->flush();
 
-            return $this->redirectToRoute('ads_index');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('ads/new.html.twig', [
@@ -76,7 +76,7 @@ class AdsController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('ads_edit', ['id' => $ad->getId()]);
+            return $this->redirectToRoute('ads_index', ['id' => $ad->getId()]);
         }
 
         return $this->render('ads/edit.html.twig', [

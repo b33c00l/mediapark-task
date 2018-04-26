@@ -1,4 +1,15 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-group">
+    {{ form_label (form.title) }}
+    {{ form_widget(form.title, {attr: { class: "form-control"}} ) }}
+    {{ form_errors(form.title) }}
+</div>
+<div class="form-group">
+    {{ form_label (form.description) }}
+    {{ form_widget(form.description, {attr: { class: "form-control"}} ) }}
+    {{ form_errors(form.description) }}
+</div>
+<div class="form-group no-gutters">
+    <button class="btn btn-block btn-outline-primary">{{ button_label|default('Save') }}</button>
+</div>
 {{ form_end(form) }}

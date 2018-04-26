@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Ads{% endblock %}
+{% block title %}Edit Ad{% endblock %}
 
 {% block body %}
-    <h1>Edit Ads</h1>
-
-    {{ include('ads/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('ads_index') }}">back to list</a>
-
-    {{ include('ads/_delete_form.html.twig') }}
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+            <h1 class="text-center">Edit Ad</h1>
+            {{ include('ads/_form.html.twig', {'button_label': 'Update'}) }}
+            <div class="text-right">
+                <a class="btn-sm btn-outline-primary" href="{{ path('ads_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

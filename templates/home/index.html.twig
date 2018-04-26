@@ -3,33 +3,30 @@
 {% block title %}Index{% endblock %}
 
 {% block body %}
-    <h1>Ads index</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Username</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for ad in ads %}
-            <tr>
-                <td>{{ ad.id }}</td>
-                <td>{{ ad.title }}</td>
-                <td>{{ ad.date ? ad.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ ad.description }}</td>
-                <td>{{ ad.user.username }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+    <h1 class="text-center mb-3">Adverts List</h1>
+    {% for ad in ads %}
+            <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="{{ path('show', {'id': ad.id}) }}">
+                            <h5>{{ ad.title }}</h5>
+                        </a>
+                    </div>
+                <div class="col-3 singleAd">
+                    <p><i>{{ ad.user.username }}</i></p>
+                    <p><i>{{ ad.date ? ad.date|date('Y-m-d H:i:s') : '' }}</i></p>
+                </div>
+                <div class="col-9 singleAd">
+                    <p>{{ ad.description }}</p>
+                </div>
+            </div>
+    {% else %}
+        <p>no records found</p>
+    {% endfor %}
+    <nav class="mt-3">
+        <ul class="pagination justify-content-center">
+            {% for page in 1..pages %}
+                <a class="page-link" href="{{ path('home', {'page':page}) }}">{{ page }}</a>
+            {% endfor %}
+        </ul>
+    </nav>
 {% endblock %}

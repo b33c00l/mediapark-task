@@ -21,7 +21,7 @@ class UserType extends AbstractType
         $builder
             ->add('username', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('save', SubmitType::class)
+            ->add('register', SubmitType::class)
         ;
     }
     public function configureOptions(OptionsResolver $resolver)

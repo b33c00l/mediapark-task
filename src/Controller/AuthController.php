@@ -42,7 +42,7 @@ class AuthController extends Controller
             $auth = $this->getDoctrine()->getManager();
             $auth->persist($user);
             $auth->flush();
-            return $this->redirectToRoute('ads_index');
+            return $this->redirectToRoute('home');
         }
         return $this->render('auth/register.html.twig', [
             'form' => $form->createView(),

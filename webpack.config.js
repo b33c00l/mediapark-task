@@ -18,7 +18,18 @@ Encore
     .enableSassLoader()
 
     // uncomment for legacy applications that require $/jQuery as a global variable
-    // .autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
-module.exports = Encore.getWebpackConfig();
+// module.exports = Encore.getWebpackConfig();
+
+var config = Encore.getWebpackConfig();
+
+//disable amd loader
+config.module.rules.unshift({
+    parser: {
+        amd: false,
+    }
+});
+
+module.exports = config;
