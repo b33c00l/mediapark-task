@@ -12,6 +12,7 @@
                 <th>Title</th>
                 <th>Date</th>
                 <th>Description</th>
+                <th>Username</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ ad.title }}</td>
                 <td>{{ ad.date ? ad.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ ad.description }}</td>
+                <td>{{ ad.user.username }}</td>
                 <td>
                     <a href="{{ path('ads_show', {'id': ad.id}) }}">show</a>
                     <a href="{{ path('ads_edit', {'id': ad.id}) }}">edit</a>
